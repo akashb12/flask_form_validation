@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+       .navbar {
+      color: blanchedalmond;
+      background-color: black;
+    }
+
+    .navbar ul li a {
+      /* display block to give padding */
+      color: white;
+      display: block;
+      padding: 3px 22px;
+      border-radius: 20px;
+      /* to remove underlines we use text decoration */
+      text-decoration: none;
+
+    }
+
+    .navbar ul li a:hover {
+      color: black;
+      background-color: white;
+
+    }
+
+ /* home section */
+ #brief {
+            display: flex;
+            flex-direction: column;
+           
+            height: 345px;
+            /* to bring content to center */
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        #brief::before {
+            content: "";
+            /* to get image at background 
+            background-color: cyan;*/
+            position: absolute;
+            height: 110%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.59;
+
+        }
+
+        /* form */
+        .forma {
+      font-size: large;
+      font-weight: bold;
+    }
+ 
+        .border1{
+          padding: 2px 20px;
+        }
+
+
+
+
+
+
+    /* utility */
+    .center{
+      text-align: center;
+    }
+    .answer {
+    padding: 11px;
+
+    margin: 10px;
+}
+#brief .logo img {
+            height: 190px;
+            margin: -10px 32px;
+
+
+
+        }
+    </style>
+    <link rel="stylesheet" media="screen and (max-width:500px)" / href="/static/phoneask.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">hello</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/login">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Q&A</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Overview
+              </a>
+           <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">name</a>
+    <a class="dropdown-item" href="#">1.</a>
+    <a class="dropdown-item" href="#">2.</a>
+    <a class="dropdown-item" href="#">3.</a>
+    <a class="dropdown-item" href="#">4.</a>
+    <a class="dropdown-item" href="#">5. </a>
+    <a class="dropdown-item" href="#">6.</a>
+    <div class="dropdown-divider"></div>
+     <a class="dropdown-item" href="#">name1</a>
+    <a class="dropdown-item" href="#">1.</a>
+    <a class="dropdown-item" href="#">2.</a>
+     <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">name2</a>
+    <a class="dropdown-item" href="#">1.</a>
+          </div>
+            </li>
+    
+          </ul>
+          
+        </div>
+      </nav>
+    
+
+    <h1 class="center head">REGISTER PAGE</h1>
+    <section id="brief">
+      <form id="regform" method="POST" onsubmit=" return regvalidateform()">
+        Enter Email:<input type="text" id="regemailid" class="form-control" name="uname" placeholder="Email Adress">
+        <span id="regusererror" class="text-danger"></span>
+        <br>
+        Enter Password:<input type="password" id="regpasswordid" class="form-control" name="passw" placeholder="Password">
+        <span id="regpassworderror" class="text-danger"></span>
+        <br>
+        <button id="reg" class="btn btn-primary" type="submit">submit</button>
+    </form>
+    
+    </section>
+    <script type="text/javascript">
+      function regvalidateform(){
+          // for storing regemailid and regpasswordid value in variables
+          var regemail=document.getElementById('regemailid').value;
+          var regpassword=document.getElementById('regpasswordid').value;
+      //    this is for setting email and password check
+          var emailcheck = /^[A-Za-z_0-9]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}$/;
+          var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z_0-9!@#$%^&*]{8,16}$/;
+          if (emailcheck.test(regemail)) { 
+              document.getElementById('regusererror').innerHTML = "correct username";
+          }else {
+              document.getElementById('regusererror').innerHTML = "**username is invalid";
+              alert("error:username is not valid");
+              return false;
+          }
+          if (passwordcheck.test(regpassword)) {
+              document.getElementById('regpassworderror').innerHTML = "correct password";
+          }else {
+              document.getElementById('regpassworderror').innerHTML = "**password is invalid";
+              alert("error:password is not valid.")
+              return false;
+          }
+      }
+  </script>
+</body>
+</html>
